@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HandMade</title>
+    <link rel="stylesheet" href="css.css" />
+    <style>
+        #app {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        input {
+            width: 360px;
+        }
+
+        #text {
+            height: 100px;
+        }
+
+        button {
+            width: 180px;
+            height: 50px;
+        }
+
+        .error {
+            border-color: red;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="app">
+        <label for="name">Name</label>
+        <input type="text" id="name" v-model="name" :class="{error: errorName}">
+        <p v-if="errorName" class="error">The name is incorrect! Use letters only.</p>
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" v-model="phone" :class="{error: errorPhone}">
+        <p v-if="errorPhone" class="error">phone number must contain only numbers +7 xxx xx xx xx</p>
+        <label for="email">E-mail</label>
+        <input type="text" id="email" v-model="email" :class="{error: errorEmail}">
+        <p v-if="errorEmail" class="error">Email must be like mail@mail.eu</p>
+        <label for="text">Comment</label>
+        <input type="text" id="text">
+        <button type="submit" @click.stop.prevent=validate>SUBMIT</button>
+
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js.js">
+    </script>
+</body>
+
+</html>
